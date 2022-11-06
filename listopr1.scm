@@ -2,7 +2,7 @@
     (cond
         ((null? l) '())
         ((null? (cdr l)) (cons (car l) ()))
-        ((eq? (car l) (car (cdr l))) (remove (cdr l)))
+        ((equal? (car l) (car (cdr l))) (remove (cdr l)))
         (else (cons (car l) (remove (cdr l))))
     )
 )

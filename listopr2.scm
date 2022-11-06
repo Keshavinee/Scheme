@@ -1,0 +1,20 @@
+(define (remove l c)
+    (cond
+        ((null? l) '())
+        ((null? (cdr l)) 
+            (if (eq? c 0) (cons (car l) ())
+                '()
+            )
+        )
+        ((equal? (car l) (car (cdr l))) (remove (cdr l) (+ c 1)))
+        ((eq? c 0) (cons (car l) (remove (cdr l) c)))
+        (else (remove (cdr l) '0))
+    )
+)
+
+(define (unrepeat l)
+    (remove l '0)
+)
+
+(display (unrepeat '("A" "B" "B")))
+(newline)
